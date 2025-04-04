@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "generated.grpc.smartAutoGraderService";
+option java_outer_classname = "SmartAutoGraderServiceImpl";
+
+package SmartAutoGraderService;
+
+// The service definition.
+// The server that you implement must extend the class  <servicename>ImplBase
+
+
+// AutoGraderService (Server Streaming)
+service SmartAutoGraderService{
+    rpc GradeSubmission (GradeRequest) returns (stream GradeResponse) {}
+}
+
+
+
+//  message identifying a GradeRequest
+message GradeRequest {
+    string submission_id = 1; // Unique submission identifier
+    string content = 2;       // Text content
+    string rubric = 4;        // Grading rubric
+}
+
+// The gradeResponse message containing answer from the server
+message GradeResponse {
+    float score = 1;          // Incremental or final score
+    string feedback = 2;      // Feedback for a section or overall
+    bool is_complete = 3;     // Indicates grading completion
+}
+

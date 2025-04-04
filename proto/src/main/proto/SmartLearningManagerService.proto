@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "generated.grpc.smartLearningManagerService";
+option java_outer_classname = "SmartLearningManagerServiceImpl";
+
+package smartLearningManagerService;
+
+// The service definition.
+
+// LearningManagerService (Client Streaming for input)
+service SmartLearningManagerService{
+    rpc UpdateLearningPath (stream ManagerRequest) returns ( ManagerResponse) {}
+
+}
+
+
+
+message ManagerRequest {
+    string course_id = 1;     // Unique course identifier
+    string student_id = 2;    // Specific student (optional)
+    string performance_data = 3;  // Progress updates (e.g., quiz scores)
+}
+
+message ManagerResponse {
+    string learning_path = 1; // Updated learning path
+    string summary = 2;       // Class/student analytics
+}

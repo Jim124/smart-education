@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "generated.grpc.smartAiTutorService";
+option java_outer_classname = "SmartAiTutorServiceImpl";
+
+package SmartAiTutorService;
+
+// The service definition.
+// The server that you implement must extend the class  <servicename>ImplBase
+
+// (Bi-directional streaming)
+service SmartAiTutorService{
+    // chat with tutor
+    rpc ChatWithTutor (stream TutorRequest) returns (stream TutorResponse) {}
+    rpc AskSingleQuestion(TutorRequest) returns (TutorResponse){}
+}
+
+//  message identifying a tutorRequest
+message TutorRequest {
+    string student_id = 1;    // Unique student identifier
+    string question = 2;      // Student’s question or topic
+}
+
+// The tutorResponse message containing answer from the server
+message TutorResponse {
+    string explanation = 1;   // AI-generated explanation
+    repeated string resources = 2;  // Suggested resources
+}
+
