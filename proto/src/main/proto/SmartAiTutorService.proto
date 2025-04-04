@@ -18,13 +18,15 @@ service SmartAiTutorService{
 
 //  message identifying a tutorRequest
 message TutorRequest {
-    string student_id = 1;    // Unique student identifier
-    string question = 2;      // Student’s question or topic
+    string question_id = 1;    // Unique student identifier
+    string question_content = 2;      // Student’s question or topic
 }
 
 // The tutorResponse message containing answer from the server
 message TutorResponse {
-    string explanation = 1;   // AI-generated explanation
-    repeated string resources = 2;  // Suggested resources
+    string question_id = 1;
+    string question_content = 2;
+    string explanation = 3;   // AI-generated explanation
+
 }
 
