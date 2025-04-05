@@ -23,6 +23,8 @@ message ManagerRequest {
 }
 
 message ManagerResponse {
-    string learning_path = 1; // Updated learning path
-    string summary = 2;       // Class/student analytics
+    string course_id = 1;
+    string student_id = 2;
+    string learning_path = 3; // Updated learning path
+    string summary = 4;       // Class/student analytics
 }

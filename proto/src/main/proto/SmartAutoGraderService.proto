@@ -19,15 +19,18 @@ service SmartAutoGraderService{
 
 //  message identifying a GradeRequest
 message GradeRequest {
-    string submission_id = 1; // Unique submission identifier
+    string student_id = 1; // Unique submission identifier
     string content = 2;       // Text content
-    string rubric = 4;        // Grading rubric
+    string rubric = 3;        // Grading rubric
 }
 
 // The gradeResponse message containing answer from the server
 message GradeResponse {
-    float score = 1;          // Incremental or final score
-    string feedback = 2;      // Feedback for a section or overall
-    bool is_complete = 3;     // Indicates grading completion
+    string student_id = 1;
+    string content = 2;
+    string course = 3;
+    float score = 4;          // Incremental or final score
+    string feedback = 5;      // Feedback for a section or overall
+    bool is_complete = 6;     // Indicates grading completion
 }
 
