@@ -4,9 +4,9 @@ import generated.grpc.smartLearningManagerService.ManagerRequest;
 import generated.grpc.smartLearningManagerService.ManagerResponse;
 import generated.grpc.smartLearningManagerService.SmartLearningManagerServiceGrpc;
 import io.grpc.stub.StreamObserver;
-import org.springframework.stereotype.Service;
+import org.springframework.grpc.server.service.GrpcService;
 
-@Service
+@GrpcService
 public class SmartLearningService extends SmartLearningManagerServiceGrpc.SmartLearningManagerServiceImplBase {
 
     @Override

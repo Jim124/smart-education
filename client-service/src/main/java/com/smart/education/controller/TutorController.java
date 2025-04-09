@@ -4,6 +4,9 @@ import com.google.protobuf.Descriptors;
 import com.smart.education.service.SmartAiTutorClientService;
 import generated.grpc.smartAiTutorService.SmartAiTutorServiceGrpc;
 import generated.grpc.smartAiTutorService.TutorRequest;
+import io.grpc.Status;
+import io.grpc.StatusException;
+import io.grpc.StatusRuntimeException;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,7 +31,11 @@ public class TutorController {
         try{
             TutorRequest request = TutorRequest.newBuilder().setQuestionContent(content).build();
             return clientService.askSingleQuestion(request).getExplanation();
-        }catch (Exception e){
+
+        }catch (StatusRuntimeException s){
+            Status status  = s.getStatus();
+            return status.getDescription();
+        } catch (Exception e) {
             e.printStackTrace();
             return "Sorry, something went wrong!";
         }

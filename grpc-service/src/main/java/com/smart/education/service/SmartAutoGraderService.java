@@ -5,9 +5,9 @@ import generated.grpc.smartAutoGraderService.GradeRequest;
 import generated.grpc.smartAutoGraderService.GradeResponse;
 import generated.grpc.smartAutoGraderService.SmartAutoGraderServiceGrpc;
 import io.grpc.stub.StreamObserver;
-import org.springframework.stereotype.Service;
+import org.springframework.grpc.server.service.GrpcService;
 
-@Service
+@GrpcService
 public class SmartAutoGraderService extends SmartAutoGraderServiceGrpc.SmartAutoGraderServiceImplBase {
     @Override
     public void gradeSubmission(GradeRequest request, StreamObserver<GradeResponse> responseObserver) {
