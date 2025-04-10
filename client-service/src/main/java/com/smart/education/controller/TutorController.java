@@ -5,7 +5,6 @@ import com.smart.education.service.SmartAiTutorClientService;
 import generated.grpc.smartAiTutorService.SmartAiTutorServiceGrpc;
 import generated.grpc.smartAiTutorService.TutorRequest;
 import io.grpc.Status;
-import io.grpc.StatusException;
 import io.grpc.StatusRuntimeException;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,7 +30,6 @@ public class TutorController {
         try{
             TutorRequest request = TutorRequest.newBuilder().setQuestionContent(content).build();
             return clientService.askSingleQuestion(request).getExplanation();
-
         }catch (StatusRuntimeException s){
             Status status  = s.getStatus();
             return status.getDescription();
@@ -39,8 +37,6 @@ public class TutorController {
             e.printStackTrace();
             return "Sorry, something went wrong!";
         }
-
-
     }
     @GetMapping("/chat/{content}")
     public List<Map<Descriptors.FieldDescriptor, Object>> chatWithTutor(@PathVariable String content) throws InterruptedException {

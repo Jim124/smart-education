@@ -9,6 +9,7 @@ import io.grpc.Metadata;
 import io.grpc.Status;
 import io.grpc.protobuf.ProtoUtils;
 import io.grpc.stub.StreamObserver;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.grpc.server.service.GrpcService;
 
 import java.util.ArrayList;
@@ -16,9 +17,11 @@ import java.util.List;
 import java.util.stream.Stream;
 
 @GrpcService
+@Slf4j
 public class SmartAiTutorService extends SmartAiTutorServiceGrpc.SmartAiTutorServiceImplBase {
     @Override
     public void askSingleQuestion(TutorRequest request, StreamObserver<TutorResponse> responseObserver) {
+        log.info("get single question content:{}",request.getQuestionContent());
         Stream<TutorResponse> answers = TempDb.getQuestion().stream().filter(tourResponse -> tourResponse.getQuestionContent().equals(request.getQuestionContent()));
         if(answers.count() == 0){
             Status status = Status.NOT_FOUND.withDescription("NOT FOUND ANSWER");

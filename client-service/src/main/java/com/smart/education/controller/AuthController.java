@@ -3,6 +3,7 @@ package com.smart.education.controller;
 import com.smart.education.model.User;
 import com.smart.education.repository.UserRepository;
 import com.smart.education.security.JwtUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
+@Slf4j
 public class AuthController {
     @Autowired
     AuthenticationManager authenticationManager;
@@ -30,6 +32,7 @@ public class AuthController {
                         user.getPassword()
                 )
         );
+        log.info("signIn: username:{},password:{}",user.getUsername(),user.getPassword());
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         return jwtUtils.generateToken(userDetails.getUsername());
     }
