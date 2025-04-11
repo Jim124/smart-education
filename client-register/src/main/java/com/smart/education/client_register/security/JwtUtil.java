@@ -1,4 +1,4 @@
-package com.smart.education.security;
+package com.smart.education.client_register.security;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;

@@ -1,15 +1,13 @@
-package com.smart.education.security;
+package com.smart.education.client_register.security;
 
-import com.smart.education.service.CustomUserDetailsService;
+import com.smart.education.client_register.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -50,7 +48,7 @@ public class WebSecurityConfig {
                 )
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/api/auth/signin","/api/auth/signup", "/api/test/all").permitAll() // Use 'requestMatchers' instead of 'antMatchers'
+                                .requestMatchers("/api/auth/signin","/api/auth/signup", "/api/learn/manage").permitAll() // Use 'requestMatchers' instead of 'antMatchers'
                                 .anyRequest().authenticated()
                 );
         // Add the JWT Token filter before the UsernamePasswordAuthenticationFilter

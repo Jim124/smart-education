@@ -1,7 +1,8 @@
-package com.smart.education.service;
+package com.smart.education.client_register.service;
 
-import com.smart.education.model.User;
-import com.smart.education.repository.UserRepository;
+
+import com.smart.education.client_register.model.User;
+import com.smart.education.client_register.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

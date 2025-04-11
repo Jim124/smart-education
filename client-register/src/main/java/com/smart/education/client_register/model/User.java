@@ -1,4 +1,4 @@
-package com.smart.education.model;
+package com.smart.education.client_register.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

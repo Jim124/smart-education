@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/learn")
 public class LearningManageController {
     @Resource
     SmartLearningManagerService smartLearningManagerService;

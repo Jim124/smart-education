@@ -1,6 +1,6 @@
-package com.smart.education.security;
+package com.smart.education.client_register.security;
 
-import com.smart.education.service.CustomUserDetailsService;
+import com.smart.education.client_register.service.CustomUserDetailsService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

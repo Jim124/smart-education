@@ -1,7 +1,7 @@
-package com.smart.education.repository;
+package com.smart.education.client_register.repository;
 
 
-import com.smart.education.model.User;
+import com.smart.education.client_register.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

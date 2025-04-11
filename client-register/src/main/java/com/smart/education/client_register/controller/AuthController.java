@@ -1,8 +1,9 @@
-package com.smart.education.controller;
+package com.smart.education.client_register.controller;
 
-import com.smart.education.model.User;
-import com.smart.education.repository.UserRepository;
-import com.smart.education.security.JwtUtil;
+
+import com.smart.education.client_register.model.User;
+import com.smart.education.client_register.repository.UserRepository;
+import com.smart.education.client_register.security.JwtUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -10,7 +11,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/auth")
