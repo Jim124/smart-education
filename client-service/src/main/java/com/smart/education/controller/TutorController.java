@@ -38,6 +38,7 @@ public class TutorController {
             return "Sorry, something went wrong!";
         }
     }
+
     @GetMapping("/chat/{content}")
     public List<Map<Descriptors.FieldDescriptor, Object>> chatWithTutor(@PathVariable String content) throws InterruptedException {
         return smartAiTutorClientService.chatWithTutor(content);
