@@ -13,6 +13,7 @@ package SmartAiTutorService;
 service SmartAiTutorService{
     // chat with tutor
     rpc ChatWithTutor (stream TutorRequest) returns (stream TutorResponse) {}
+    // unary
     rpc AskSingleQuestion(TutorRequest) returns (TutorResponse){}
 }
 
